@@ -84,7 +84,6 @@ class NavBarComponent extends React.Component {
             <Col lg={4} md={6} sm={12} xs={12} key={index} className="mt-2">
                 <div
                     className="icon-cards-row mb-3"
-                    style={{ minWidth: "fit-content" }}
                 >
                     <div key={`icon_card_1`}>
                         <div className={`icon-row-item`}>

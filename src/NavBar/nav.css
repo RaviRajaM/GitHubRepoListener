@@ -39,6 +39,7 @@
     border: 2px solid rgba(0,0,0,.125);
     border-radius: 1.25rem;
     min-height: 230px;
+    max-height: 230px;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
 }
 .customRow{
@@ -49,4 +50,5 @@
 }
 .cardBody1{
 padding-left: 2rem !important;
+overflow: auto;
 }
