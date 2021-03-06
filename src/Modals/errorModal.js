@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
-import { Row, Card, CardBody } from "reactstrap";
+import { Row } from "reactstrap";
 
 class ErrorModal extends React.Component {
     toggleModal = () => {

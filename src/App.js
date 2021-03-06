@@ -1,7 +1,6 @@
 import './App.css';
 import React, { Fragment } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from "@material-ui/core/Button";
 import NavBarComponent from "../src/NavBar/index"
 class App extends React.Component {
 

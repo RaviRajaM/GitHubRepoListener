@@ -4,10 +4,7 @@ import {
     Col,
     Card,
     CardBody,
-    FormGroup,
-    Label,
     Button,
-    Collapse,
 } from "reactstrap";
 import "./nav.css";
 import "../../node_modules/font-awesome/css/font-awesome.min.css";
@@ -67,14 +64,14 @@ class NavBarComponent extends React.Component {
     };
     sortFunction = () => {
         const { response, sortType } = this.state;
-        if (sortType == "byAplha") {
+        if (sortType === "byAplha") {
             this.state.sortArray = response.sort((a, b) => {
-                const isReversed = sortType == "byAplha" ? -1 : 1;
+                const isReversed = sortType === "byAplha" ? -1 : 1;
                 return isReversed * a.name.localeCompare(b.name);
             });
             this.setState({ sortArray: this.state.sortArray });
         }
-        if (sortType == "byStag") {
+        if (sortType === "byStag") {
             this.state.sortArray = response.sort((a, b) => {
                 return parseInt(b.stargazers_count) - parseInt(a.stargazers_count);
             });
@@ -109,7 +106,7 @@ class NavBarComponent extends React.Component {
                                         <p className="mt-1" style={{ fontFamily: "    FontAwesome", }}>{data.description}</p>
                                     </Row>
                                     <Row>
-                                        <p className="mt-1" style={{ fontFamily: "    FontAwesome", }}>{data.html_url}</p>
+                                        <p className="mt-1" style={{ fontFamily: "    FontAwesome", }}><a target="_blank" href={data.html_url}> {data.html_url}</a></p>
                                     </Row>
                                 </CardBody>
                             </Card>
@@ -174,7 +171,7 @@ class NavBarComponent extends React.Component {
                         style={{ display: "flex", alignItems: "flex-end", paddingLeft: "40px" }}
                     >
                         <h6 style={{ fontSize: "1rem", paddingRight: "10px" }}>SortBy</h6>
-                        {this.state.sortType == "byAplha" ? (
+                        {this.state.sortType === "byAplha" ? (
                             <Button
                                 className="fa fa-sort"
                                 style={{ marginRight: "10px", background: "blueviolet" }}
@@ -193,7 +190,7 @@ class NavBarComponent extends React.Component {
                 Alphabetical
                             </Button>
                         )}
-                        {this.state.sortType == "byStag" ? (
+                        {this.state.sortType === "byStag" ? (
                             <Button
                                 className="fa fa-sort"
                                 style={{ background: "blueviolet" }}
