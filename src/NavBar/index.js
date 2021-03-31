@@ -119,12 +119,16 @@ class NavBarComponent extends React.Component {
         this.state.sortType = value;
         this.sortFunction();
     };
-
+    handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+        }
+    }
 
     render() {
         return (
             <Fragment>
-                <div /* style={{ background: "aliceblue" }} */>
+                <div>
                     <div className="main mt-2">
                         <form>
                             <Row sm="3" lg="12" md="12" xs="3">
@@ -142,6 +146,7 @@ class NavBarComponent extends React.Component {
                                             placeholder="Search Users/Orgs"
                                             value={this.state.searchInput}
                                             onChange={this.handleChange}
+                                            onKeyDown={this.handleKeyDown}
 
                                         />
                                     </div>
