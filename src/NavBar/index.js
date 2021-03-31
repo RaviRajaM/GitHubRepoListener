@@ -41,9 +41,8 @@ class NavBarComponent extends React.Component {
         try {
             const octokit = new Octokit();
             const result = await octokit
-                .request("GET /orgs/{org}/repos", {
-                    org: orgName,
-                    type: "public",
+                .request('GET /users/{username}/repos', {
+                    username: orgName,
                 })
                 .then(({ data }) => {
                     this.setState({ response: data, sortType: "byStag" });
@@ -125,100 +124,105 @@ class NavBarComponent extends React.Component {
     render() {
         return (
             <Fragment>
-                <div className="main mt-2">
-                    <form>
-                        <Row sm="3" lg="12" md="12" xs="3">
-                            <Col lg="4" md="4" sm="3">
-                                {" "}
-                                <h3 className="mt-3 header1" onClick={this.refresh}>GitHub Repo Lister</h3>
-
-                            </Col>
-                            <Col lg="4" md="4" sm="3">
-                                <div className="form-group has-search mt-3">
-                                    <span className="fa fa-search form-control-feedback"></span>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        placeholder="Search Users/Orgs"
-                                        value={this.state.searchInput}
-                                        onChange={this.handleChange}
-
-                                    />
-                                </div>
-                            </Col>
-                            <Col lg="4" md="3" sm="3">
-                                <Button
-                                    className="searchButton  mt-3"
-                                    onClick={this.handleSearch}
-                                >
+                <div /* style={{ background: "aliceblue" }} */>
+                    <div className="main mt-2">
+                        <form>
+                            <Row sm="3" lg="12" md="12" xs="3">
+                                <Col lg="4" md="4" sm="3">
                                     {" "}
+                                    <h3 className="mt-3 header1" onClick={this.refresh}>GitHub Repo Lister</h3>
+
+                                </Col>
+                                <Col lg="4" md="4" sm="3">
+                                    <div className="form-group has-search mt-3">
+                                        <span className="fa fa-search form-control-feedback"></span>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="Search Users/Orgs"
+                                            value={this.state.searchInput}
+                                            onChange={this.handleChange}
+
+                                        />
+                                    </div>
+                                </Col>
+                                <Col lg="4" md="3" sm="3">
+                                    <Button
+                                        className="searchButton  mt-3"
+                                        onClick={this.handleSearch}
+                                    >
+                                        {" "}
                   Search
                 </Button>
-                            </Col>
-                        </Row>
-                    </form>
-                </div>
-                <div className="mt-5">
-                    <Row style={{ paddingLeft: "40px" }}>
-                        <h6 className="customHeading">
-                            Listing repositories for the user "{this.state.searchInput}":
+                                </Col>
+                            </Row>
+                        </form>
+                    </div>
+                    <div className="mt-5">
+                        <Row style={{ paddingLeft: "40px" }}>
+                            <h6 className="customHeading">
+                                Please enter any GitHub User Names to find their individual repositories
+                            <br />
+                                <br />
+                                Listing repositories for the user "{this.state.searchInput}":
             </h6>
-                    </Row>
+                        </Row>
 
-                    <Row
-                        className="mt-3"
-                        style={{ display: "flex", alignItems: "flex-end", paddingLeft: "40px" }}
-                    >
-                        <h6 style={{ fontSize: "1rem", paddingRight: "10px" }}>SortBy</h6>
-                        {this.state.sortType === "byAplha" ? (
-                            <Button
-                                className="fa fa-sort"
-                                style={{ marginRight: "10px", background: "blueviolet" }}
-                                onClick={() => this.buttonSort("byAplha")}
-                            >
-                                {" "}
+                        <Row
+                            className="mt-3"
+                            style={{ display: "flex", alignItems: "flex-end", paddingLeft: "40px" }}
+                        >
+                            <h6 style={{ fontSize: "1rem", paddingRight: "10px" }}>SortBy</h6>
+                            {this.state.sortType === "byAplha" ? (
+                                <Button
+                                    className="fa fa-sort"
+                                    style={{ marginRight: "10px", background: "blueviolet" }}
+                                    onClick={() => this.buttonSort("byAplha")}
+                                >
+                                    {" "}
                 Alphabetical
-                            </Button>
-                        ) : (
-                            <Button
-                                className="fa fa-sort"
-                                style={{ marginRight: "10px" }}
-                                onClick={() => this.buttonSort("byAplha")}
-                            >
-                                {" "}
+                                </Button>
+                            ) : (
+                                <Button
+                                    className="fa fa-sort"
+                                    style={{ marginRight: "10px" }}
+                                    onClick={() => this.buttonSort("byAplha")}
+                                >
+                                    {" "}
                 Alphabetical
-                            </Button>
-                        )}
-                        {this.state.sortType === "byStag" ? (
-                            <Button
-                                className="fa fa-sort"
-                                style={{ background: "blueviolet" }}
-                                onClick={() => this.buttonSort("byStag")}
-                            >
-                                {" "}
+                                </Button>
+                            )}
+                            {this.state.sortType === "byStag" ? (
+                                <Button
+                                    className="fa fa-sort"
+                                    style={{ background: "blueviolet" }}
+                                    onClick={() => this.buttonSort("byStag")}
+                                >
+                                    {" "}
                 By Most Stars
-                            </Button>
-                        ) : (
-                            <Button
-                                className="fa fa-sort"
-                                onClick={() => this.buttonSort("byStag")}
-                            >
-                                {" "}
+                                </Button>
+                            ) : (
+                                <Button
+                                    className="fa fa-sort"
+                                    onClick={() => this.buttonSort("byStag")}
+                                >
+                                    {" "}
                 By Most Stars
-                            </Button>
-                        )}
-                    </Row>
+                                </Button>
+                            )}
+                        </Row>
 
-                    <Row>{this.state.sortArray.map(this.renderCards)}</Row>
+                        <Row>{this.state.sortArray.map(this.renderCards)}</Row>
+                    </div>
+                    <ErrorModal
+                        open={this.state.modalOpen}
+                        onToggle={this.onToggle}
+                        onCancel={this.onCancel}
+                        bodyText="No Organization Repos Found, Click Ok to search a new Repo "
+                        modalText="Oops Error.."
+                    />
                 </div>
-                <ErrorModal
-                    open={this.state.modalOpen}
-                    onToggle={this.onToggle}
-                    onCancel={this.onCancel}
-                    bodyText="No Organization Repos Found, Click Ok to search a new Repo "
-                    modalText="Oops Error.."
-                />
-            </Fragment>
+            </Fragment >
         );
     }
 }
