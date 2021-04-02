@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/GitHubRepoListener/static/css/main.732ac403.chunk.css",
+    "main.js": "/GitHubRepoListener/static/js/main.515aada5.chunk.js",
+    "main.js.map": "/GitHubRepoListener/static/js/main.515aada5.chunk.js.map",
+    "runtime-main.js": "/GitHubRepoListener/static/js/runtime-main.f4e4a913.js",
+    "runtime-main.js.map": "/GitHubRepoListener/static/js/runtime-main.f4e4a913.js.map",
+    "static/css/2.d088a70e.chunk.css": "/GitHubRepoListener/static/css/2.d088a70e.chunk.css",
+    "static/js/2.ebb07217.chunk.js": "/GitHubRepoListener/static/js/2.ebb07217.chunk.js",
+    "static/js/2.ebb07217.chunk.js.map": "/GitHubRepoListener/static/js/2.ebb07217.chunk.js.map",
+    "static/js/3.68d8ad90.chunk.js": "/GitHubRepoListener/static/js/3.68d8ad90.chunk.js",
+    "static/js/3.68d8ad90.chunk.js.map": "/GitHubRepoListener/static/js/3.68d8ad90.chunk.js.map",
+    "index.html": "/GitHubRepoListener/index.html",
+    "static/css/2.d088a70e.chunk.css.map": "/GitHubRepoListener/static/css/2.d088a70e.chunk.css.map",
+    "static/css/main.732ac403.chunk.css.map": "/GitHubRepoListener/static/css/main.732ac403.chunk.css.map",
+    "static/js/2.ebb07217.chunk.js.LICENSE.txt": "/GitHubRepoListener/static/js/2.ebb07217.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.min.css": "/GitHubRepoListener/static/media/fontawesome-webfont.f691f37e.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f4e4a913.js",
+    "static/css/2.d088a70e.chunk.css",
+    "static/js/2.ebb07217.chunk.js",
+    "static/css/main.732ac403.chunk.css",
+    "static/js/main.515aada5.chunk.js"
+  ]
+}
