@@ -53,3 +53,7 @@
 padding-left: 2rem !important;
 overflow: auto;
 }
+
+.background {
+    background: beige;
+}

@@ -16,7 +16,7 @@ class NavBarComponent extends React.Component {
         super(props);
         this.state = {
             load: true,
-            searchInput: "",
+            searchInput: "ravirajam",
             response: [],
             modalOpen: false,
             sortArray: [],
@@ -25,6 +25,7 @@ class NavBarComponent extends React.Component {
     }
 
     componentDidMount = async () => {
+        this.handleSearch()
     };
     refresh = () => {
         window.location.reload();
@@ -80,7 +81,7 @@ class NavBarComponent extends React.Component {
 
     renderCards = (data, index) => {
         return (
-            <Col lg={4} md={6} sm={12} xs={12} key={index} className="mt-2">
+            <Col lg={4} md={6} sm={12} xs={12} key={index} className="mt-2 ">
                 <div
                     className="icon-cards-row mb-3"
                 >
@@ -128,7 +129,7 @@ class NavBarComponent extends React.Component {
     render() {
         return (
             <Fragment>
-                <div>
+                <div className="">
                     <div className="main mt-2">
                         <form>
                             <Row sm="3" lg="12" md="12" xs="3">
@@ -217,7 +218,7 @@ class NavBarComponent extends React.Component {
                             )}
                         </Row>
 
-                        <Row>{this.state.sortArray.map(this.renderCards)}</Row>
+                        <Row className=" mt-2">{this.state.sortArray.map(this.renderCards)}</Row>
                     </div>
                     <ErrorModal
                         open={this.state.modalOpen}
